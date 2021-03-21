@@ -1,22 +1,31 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React,{useState,useEffect} from 'react';
+import { render } from 'react-dom';
 import { StyleSheet, Text, View, ScrollView, SafeAreaView, Image, TextInput, Dimensions, Platform} from 'react-native';
+import TodoInsert from './components/TodoInsert'
+import TodoList from './components/TodoList'
+import TodoListItem from './components/TodoListItem'
 
 const { height, width} = Dimensions.get('window');
 
 export default function App() {
+  console.disableYellowBox = true;  
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barstyle="auto" />
       <Text style={styles.apptitle}>오늘의 MAIN</Text>
       <View style={styles.card}>
-        <TextInput style={styles.input} placeholder={"오늘도 화이팅!"}></TextInput>
+        <TodoInsert />
+        <TodoList />
       </View>
-
     </SafeAreaView>
-  );
+  )
+    
 }
 
+
+
+  
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -52,5 +61,11 @@ const styles = StyleSheet.create({
           elevation: 3
         }
       })
+    },
+    input : {
+      padding: 20,
+      borderBottomColor:'#B778FF',
+      borderBottomWidth: 1.5,
+      fontSize: 18
     }
 });
