@@ -15,10 +15,14 @@ import CheckBox from '@react-native-community/checkbox';
 const { height, width} = Dimensions.get('window');
 
 export default function App() {
+
+  
   console.disableYellowBox = true;  
   
   const [todos, setTodos] = useState([]);
   const [toggleCheckBox, setToggleCheckBox] = useState(false)
+
+
 
 
   useEffect(()=>{
@@ -38,36 +42,41 @@ export default function App() {
 
   // const onToggle = i => e => {
   //   setTodos(
+  //     todo.map(todo =>
+  //       todo.i === i ? {...todo, checked: !todo.checked} : todo,
+  //     ),
+  //   );
+  // };
+
+  //   const onToggle = id => e => {
+  //     setToggleCheckBox(
   //     todos.map(todo =>
   //       todo.i === i ? {...todo, checked: !todo.checked} : todo,
   //     ),
   //   );
   // };
-  let tip = data.tip;
-  return (
+  let todo = data.tip;
+  let index = data.tip.idx;
+  return  (
     <SafeAreaView style={styles.container}>
       <StatusBar barstyle="auto" />
-      <Text style={styles.apptitle}>오늘의 MAIN</Text>
+      <Text style={styles.apptitle}>TODAY'S MAIN</Text>
       <Image 
         source={start}
-				// 사용설명서에 나와 있는 resizeMode 속성 값을 그대로 넣어 적용합니다
         resizeMode={'contain'}
         style={styles.image}
       />
       < ScrollView style={styles.card}>
         {
-          tip.map((content,i)=>{
-         return ( <View style={styles.todocontainer} key={i}>
-        <TouchableOpacity>
-        <View/>
-          <CheckBox
-        disabled={false}
-        value={toggleCheckBox}
+          todo.map((content,i)=>{
+         return  ( <View style={styles.todocontainer} key={i}>
+            <CheckBox 
+            disabled={false}
+            value={toggleCheckBox}
             onValueChange={(newValue) => setToggleCheckBox(newValue)}
-          />
-          {/* <Icon style={styles.icon} name="checkcircleo" size={30} color="pink" /> */}
-        </TouchableOpacity>
-        <Text style={styles.unstrikeText,toggleCheckBox ?  styles.strikeText:styles.unstrikeText}>{content.title} </Text>
+            
+             />   
+        <Text style={styles.text, toggleCheckBox ?  styles.strikeText : styles.unstrikeText}>{content.title} </Text>
         </View>)
         })
       }
@@ -89,7 +98,6 @@ const styles = StyleSheet.create({
 
     apptitle : {
         color:'black',
-        fontFamily:'',
         fontSize: 36,
         fontWeight:'300',
         textAlign:'center',
@@ -159,7 +167,6 @@ const styles = StyleSheet.create({
       marginLeft:10
     },
     strikeText: {
-    
       flex:1,
       marginTop:20,
       marginBottom:10,
@@ -180,3 +187,4 @@ const styles = StyleSheet.create({
       alignSelf: "center",
     },
 });
+{/* <Icon style={styles.icon} name="checkcircleo" size={30} color="pink" /> */} 
