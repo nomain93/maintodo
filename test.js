@@ -29,7 +29,7 @@ const TodoInsert = ({onAddTodo}) => {
       />
       <TouchableOpacity onPress={addTodoHandler}>
       <View style={styles.button}>
-      <Icon name="pluscircleo" size={30} color="pink" />
+      <Icon name="pluscircleo" size={30} color="blue" />
       </View>
       </TouchableOpacity>
     </View>
