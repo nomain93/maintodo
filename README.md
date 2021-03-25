@@ -1,5 +1,7 @@
 ![TODO](https://user-images.githubusercontent.com/79817534/112462490-71e63f80-8da4-11eb-8846-e59552c321a3.gif)
-TODO 앱 구동 화면
+
+
+* TODO 앱 구동 화면
 
 # TODO
 
